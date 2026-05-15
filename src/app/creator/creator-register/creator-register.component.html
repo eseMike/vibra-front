@@ -1,0 +1,36 @@
+<div class="creator-register-container">
+  <h2 class="title">Registro de creadora</h2>
+
+  <!-- DATOS PRINCIPALES -->
+  <div class="section">
+    <h3>Datos principales</h3>
+
+    <input type="text" placeholder="Nombre de usuario" />
+    <input type="password" placeholder="Contraseña" />
+    <input type="password" placeholder="Confirmar contraseña" />
+    <input type="email" placeholder="Correo electrónico" />
+  </div>
+
+  <!-- DOCUMENTOS -->
+  <div class="section">
+    <h3>Sube tus documentos</h3>
+
+    <label>INE (frente y reverso)</label>
+    <input type="file" />
+
+    <label>Foto sosteniendo INE</label>
+    <input type="file" />
+
+    <label>CLABE interbancaria</label>
+    <input type="text" placeholder="18 dígitos" />
+  </div>
+
+  <!-- TÉRMINOS -->
+  <div class="terms">
+    <label> <input type="checkbox" /> Acepto términos y condiciones </label>
+    <a href="#">Ver términos y condiciones</a>
+  </div>
+
+  <!-- BOTÓN -->
+  <button class="btn-primary" (click)="goToEditProfile()">Crear cuenta</button>
+</div>

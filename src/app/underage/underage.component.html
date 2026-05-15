@@ -1,0 +1,25 @@
+<div class="underage-container">
+  <h1>Contenido restringido</h1>
+  <p>Vuelve cuando seas mayor ✨</p>
+  <button class="exit-button" (click)="exit()">Salir</button>
+</div>
+
+<div class="underage-container">
+
+  <h1>Antes de continuar</h1>
+
+  <p class="age-text">
+    Confirmo que soy mayor de 18 años y acepto los términos para acceder a la plataforma.
+  </p>
+
+  <div class="privacy-link">
+    <a (click)="openPrivacy()">Ver aviso de privacidad</a>
+  </div>
+
+  <div class="actions">
+    <button class="accept-button" (click)="accept()">
+      Aceptar y continuar
+    </button>
+  </div>
+
+</div>

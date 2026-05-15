@@ -1,0 +1,44 @@
+<div class="settings-container">
+  <h2 class="title">Configuración</h2>
+
+  <div class="options">
+    <div class="option-card" (click)="goToEditProfile()">
+      <h3>Editar perfil</h3>
+      <p>Actualiza tu información personal</p>
+    </div>
+
+    <div class="option-card">
+      <h3>Notificaciones</h3>
+      <p>Configura alertas y avisos</p>
+    </div>
+
+    <div class="option-card">
+      <h3>Privacidad</h3>
+      <p>Gestiona tu seguridad</p>
+    </div>
+
+    <div class="option-card" (click)="logout()">
+      <h3>Cerrar sesión</h3>
+      <p>Salir de tu cuenta</p>
+    </div>
+
+    <div class="option-card danger" (click)="toggleDeleteConfirm()">
+      <h3>Eliminar cuenta</h3>
+      <p>Eliminar permanentemente tu cuenta</p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showDeleteConfirm" class="modal-overlay">
+  <div class="modal">
+    <h3>¿Eliminar cuenta?</h3>
+    <p>Esta acción no se puede deshacer</p>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" (click)="toggleDeleteConfirm()">
+        Cancelar
+      </button>
+      <button class="btn-danger" (click)="confirmDelete()">Eliminar</button>
+    </div>
+  </div>
+</div>

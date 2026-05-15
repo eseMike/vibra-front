@@ -1,0 +1,87 @@
+<header
+  [ngClass]="isHome() ? 'vibra-header home' : 'vibra-header default'"
+  [class.scrolled]="isScrolled"
+>
+  <div class="header-content">
+    <div class="logo">
+      <a routerLink="/">VIBRA</a>
+    </div>
+
+    <nav class="vibra-nav" [class.open]="isMenuOpen">
+      <ng-container *ngIf="isLoggedIn; else loggedOut">
+        <a routerLink="/" routerLinkActive="active-link">Inicio</a>
+        <a routerLink="/discover" routerLinkActive="active-link">Descubrir</a>
+        <a
+          *ngIf="currentUser?.role === 'creator'"
+          routerLink="/creator-dashboard"
+          routerLinkActive="active-link"
+        >
+          Panel creador
+        </a>
+
+        <div class="user-menu">
+          <button
+            class="user-trigger"
+            (click)="toggleUserMenu()"
+            aria-haspopup="true"
+            [attr.aria-expanded]="isUserMenuOpen"
+          >
+            <span class="user-avatar">
+              <img
+                *ngIf="currentUser?.avatar; else initialAvatar"
+                [src]="'http://localhost:4000/' + currentUser?.avatar"
+                alt="avatar"
+              />
+              <ng-template #initialAvatar>
+                {{ userInitial }}
+              </ng-template>
+            </span>
+            <span class="user-arrow">▾</span>
+          </button>
+
+          <div class="user-dropdown" *ngIf="isUserMenuOpen">
+            <div class="user-info user-info-header">
+              <strong>{{
+                currentUser?.publicName || currentUser?.name
+              }}</strong>
+              <div class="user-email">{{ currentUser?.email }}</div>
+            </div>
+
+            <div class="dropdown-divider"></div>
+
+            <div *ngIf="currentUser?.role === 'creator'">
+              <a
+                routerLink="/creator-dashboard"
+                (click)="isUserMenuOpen = false"
+                >Dashboard creador</a
+              >
+              <a routerLink="/creator-upload" (click)="isUserMenuOpen = false"
+                >Subir contenido</a
+              >
+              <a routerLink="/creator-content" (click)="isUserMenuOpen = false"
+                >Mi contenido</a
+              >
+              <div class="dropdown-divider"></div>
+            </div>
+
+            <a routerLink="/perfil/0" (click)="isUserMenuOpen = false"
+              >Mi cuenta</a
+            >
+            <button class="logout-btn" (click)="logout()">Cerrar sesión</button>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #loggedOut>
+        <a routerLink="/auth/login">Iniciar sesión</a>
+        <a routerLink="/auth/register" class="register-btn">Crear cuenta</a>
+      </ng-template>
+    </nav>
+
+    <div class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>

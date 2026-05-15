@@ -1,0 +1,129 @@
+.vibra-home {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.vibra-silhouettes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.silhouette {
+  position: absolute;
+  height: 85vh;
+  width: auto;
+  opacity: 0;
+  filter: blur(2px) brightness(0.05) contrast(1.4);
+  animation: neonFlash 5.5s infinite ease-in-out alternate;
+  transition: opacity 0.4s ease-in-out, transform 0.6s ease-in-out;
+  pointer-events: none;
+}
+
+/* Refined poses */
+
+/* Left silhouette - pose with hip out */
+.silhouette--left {
+  left: 10%;
+  bottom: 8%;
+  transform: rotate(-12deg) scale(1.05);
+  animation-delay: 0.3s;
+}
+
+/* Center silhouette - most defined posture */
+.silhouette--center {
+  left: 50%;
+  bottom: 5%;
+  transform: translateX(-50%) rotate(4deg) scale(1.12);
+  animation-delay: 0.9s;
+}
+
+/* Right silhouette - elegant leg shift */
+.silhouette--right {
+  right: 10%;
+  bottom: 10%;
+  transform: rotate(10deg) scale(1.03);
+  animation-delay: 1.5s;
+}
+
+/* Updated animation for sexier flash */
+@keyframes neonFlash {
+  0%,
+  100% {
+    opacity: 0;
+    filter: blur(5px) brightness(0.02);
+  }
+  50% {
+    opacity: 0.85;
+    filter: blur(1px) brightness(3.0) contrast(2.6);
+  }
+}
+
+.vibra-home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(229,0,125,0.25) 0%, rgba(18,18,18,0) 70%);
+  animation: pulse 3s infinite ease-in-out;
+  z-index: -2;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+}
+
+.vibra-logo {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+  color: var(--vibra-fucsia);
+  text-shadow: 0 0 10px var(--vibra-fucsia), 0 0 20px var(--vibra-violeta);
+}
+
+.vibra-tagline {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--vibra-blanco-perla);
+  opacity: 0.85;
+}
+
+.vibra-cta {
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(45deg, var(--vibra-fucsia), var(--vibra-violeta));
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  color: var(--vibra-blanco-perla);
+}
+
+.vibra-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--vibra-fucsia);
+}
+
+.vibra-cta:active {
+  transform: scale(0.97);
+}

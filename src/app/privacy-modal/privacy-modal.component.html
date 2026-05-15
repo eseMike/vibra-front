@@ -1,0 +1,30 @@
+<div class="privacy-modal-backdrop">
+  <div class="privacy-modal-box">
+    <div class="vibra-logo">VIBRA</div>
+    <h2>Aviso de Privacidad</h2>
+    <p>
+      Este sitio utiliza tecnologías para mejorar tu experiencia y puede
+      recopilar datos personales. Al continuar, aceptas nuestro Aviso de
+      Privacidad.
+    </p>
+
+    <div class="modal-buttons">
+      <button class="btn-primary" (click)="accept()">
+        Sí, soy mayor de 18 años y acepto
+      </button>
+
+      <button class="btn-secondary" (click)="underAge()">
+        Soy menor de edad
+      </button>
+
+      <button class="btn-link" (click)="viewPrivacy()">
+        ver aviso completo
+      </button>
+
+      <p class="modal-note">
+        al continuar confirmas que eres mayor de edad y aceptas el aviso de
+        privacidad
+      </p>
+    </div>
+  </div>
+</div>

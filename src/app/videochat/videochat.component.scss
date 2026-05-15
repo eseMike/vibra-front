@@ -1,0 +1,148 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: radial-gradient(
+    circle at top,
+    #1a0f1f 0%,
+    #0b0b0e 60%,
+    #000 100%
+  );
+  color: #fff;
+}
+
+/* Layout principal */
+.videochat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px 30px;
+}
+
+/* Header */
+.videochat-header {
+  text-align: center;
+  margin-bottom: 25px;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, #ff3cac, #784ba0, #2b86c5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .videochat-status {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #ff3cac, #784ba0);
+    box-shadow: 0 0 12px rgba(255, 60, 172, 0.6);
+    letter-spacing: 0.4px;
+  }
+}
+
+/* Área de video */
+.videochat-stage {
+  width: 100%;
+  max-width: 900px;
+  height: 420px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #141414, #0b0b0b);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 25px rgba(255, 60, 172, 0.15),
+    inset 0 0 40px rgba(255, 255, 255, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  position: relative;
+  overflow: hidden;
+
+  .videochat-placeholder {
+    text-align: center;
+    opacity: 0.6;
+    font-size: 0.95rem;
+  }
+}
+
+/* Barra de controles */
+.videochat-controls {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+
+  button {
+    min-width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #2a2a2a, #0f0f0f);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    box-shadow:
+      0 6px 16px rgba(0, 0, 0, 0.7),
+      inset 0 0 8px rgba(255, 255, 255, 0.06);
+    transition: all 0.25s ease;
+
+    &:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow:
+        0 0 16px rgba(255, 60, 172, 0.6),
+        inset 0 0 12px rgba(255, 255, 255, 0.1);
+    }
+
+    &:active {
+      transform: scale(0.94);
+      box-shadow: 0 0 8px rgba(255, 60, 172, 0.4);
+    }
+  }
+
+  .btn-end {
+    background: linear-gradient(135deg, #ff4b4b, #b00000);
+    box-shadow:
+      0 0 18px rgba(255, 75, 75, 0.7),
+      inset 0 0 10px rgba(255, 255, 255, 0.08);
+
+    &:hover {
+      box-shadow:
+        0 0 22px rgba(255, 75, 75, 0.9),
+        inset 0 0 14px rgba(255, 255, 255, 0.12);
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .videochat-stage {
+    height: 300px;
+  }
+
+  .videochat-header h1 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .videochat-stage {
+    height: 240px;
+  }
+
+  .videochat-controls {
+    gap: 12px;
+
+    button {
+      min-width: 48px;
+      height: 48px;
+      font-size: 1rem;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<div class="creator-edit-container">
+  <h2 class="title">Edita tu perfil</h2>
+
+  <div class="section">
+    <label>Describe tu perfil</label>
+    <textarea rows="4" placeholder="Cuéntanos sobre ti..."></textarea>
+  </div>
+
+  <div class="section">
+    <label>Sube una foto de perfil</label>
+    <div class="avatar-upload">
+      <input type="file" accept="image/*" (change)="onAvatarSelected($event)" />
+      <div class="avatar-preview">
+        <img *ngIf="avatarPreview" [src]="avatarPreview" alt="avatar preview" />
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <label>Subir video</label>
+    <input type="file" />
+    <div class="video-preview">▶</div>
+  </div>
+
+  <button class="btn-primary" (click)="saveProfile()">
+    Guardar y publicar
+  </button>
+</div>

@@ -1,0 +1,33 @@
+<div class="user-profile-page" *ngIf="!isLoading && user">
+  <div class="profile-card">
+    <div class="avatar-circle">
+      {{ user?.name?.charAt(0)?.toUpperCase() }}
+    </div>
+
+    <h1>{{ user.name }}</h1>
+    <p class="email">{{ user.email }}</p>
+
+    <div class="wallet-box">
+      <span class="wallet-label">Wallet actual</span>
+      <span class="wallet-amount">{{ wallet }} vibras</span>
+    </div>
+  </div>
+
+  <div class="buy-vibras-section">
+    <h2>Comprar vibras</h2>
+
+    <div class="vibras-grid">
+      <button class="vibra-btn" (click)="comprarVibras(20)">
+        20 vibras · $20
+      </button>
+      <button class="vibra-btn" (click)="comprarVibras(50)">
+        50 vibras · $50
+      </button>
+      <button class="vibra-btn" (click)="comprarVibras(100)">
+        100 vibras · $100
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="loading-state">Cargando perfil...</div>

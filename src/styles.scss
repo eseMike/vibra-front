@@ -1,1 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Raleway:wght@300;400;500;600&display=swap');
+
+:root {
+  --vibra-fucsia: #E5007D;
+  --vibra-negro: #121212;
+  --vibra-violeta: #4C1C8C;
+  --vibra-blanco-perla: #F4F4F4;
+}
+
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--vibra-negro);
+  color: var(--vibra-blanco-perla);
+  margin: 0;
+  padding-top: 80px;
+}
+
+.vibra-galeria {
+  padding: 4rem 1rem;
+  background-color: #121212;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+  }
+
+  .galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .galeria-card {
+    background-color: #1e1e1e;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(229, 0, 125, 0.1);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: #ccc;
+      font-size: 1rem;
+      margin: 0;
+    }
+  }
+}

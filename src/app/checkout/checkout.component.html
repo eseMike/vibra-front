@@ -1,0 +1,35 @@
+<div class="checkout-container">
+  <div class="checkout-header">
+    <h1 class="checkout-title">Checkout Vibra</h1>
+    <span class="checkout-badge">Pago seguro</span>
+  </div>
+
+  <div class="checkout-card">
+    <p class="checkout-subtitle">Activa tu acceso Premium</p>
+
+    <div class="checkout-info">
+      <div class="info-row">
+        <span class="label">Plan</span>
+        <span class="value">Premium Vibra</span>
+      </div>
+
+      <div class="info-row">
+        <span class="label">Estado</span>
+        <span class="value status-pending">Pendiente de pago</span>
+      </div>
+    </div>
+
+    <div class="checkout-actions">
+      <button class="btn btn-primary pagar-btn" (click)="pagar()">
+        Pagar ahora
+      </button>
+      <button class="btn btn-success demo-btn" (click)="activarDemo()">
+        Activar acceso Premium (modo demo)
+      </button>
+
+      <button class="btn btn-secondary volver-btn" routerLink="/landing">
+        Volver
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,175 @@
+.privacy-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(12px);
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 0, 204, 0.08),
+    rgba(0, 0, 0, 0.6)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.privacy-modal-box {
+  position: relative;
+  background: rgba(20, 20, 20, 0.92);
+  border-radius: 14px;
+  padding: 2.2rem 2.8rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 28px rgba(255, 0, 204, 0.18);
+  max-width: 520px;
+  width: 92%;
+  animation: fadeInUp 0.35s ease-out both;
+  overflow: hidden;
+}
+
+.privacy-modal-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  padding: 1px;
+  background: linear-gradient(135deg, #ff00cc, #7f00ff, #ff00cc);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.vibra-logo {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.8rem;
+  background: linear-gradient(120deg, #ff00cc, #7f00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  background-size: 200% auto;
+  animation: vibraLogoShine 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(255, 0, 204, 0.45));
+}
+
+.privacy-modal-box h2 {
+  margin: 0 0 1rem;
+  color: #ffffff;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.privacy-modal-box p {
+  margin: 0 0 1.8rem;
+  color: #dcdcdc;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.modal-note {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 0.3rem;
+}
+
+.btn-primary {
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  width: 100%;
+  border: none;
+  color: #fff;
+  background: linear-gradient(120deg, #ff00cc, #7f00ff, #ff00cc);
+  background-size: 200% auto;
+  box-shadow: 0 0 16px rgba(255, 0, 204, 0.6);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.25s ease,
+    background-position 0.4s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 26px rgba(255, 0, 204, 0.9);
+  background-position: right center;
+}
+
+.btn-secondary {
+  cursor: pointer;
+  padding: 0.9rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  background: linear-gradient(120deg, #444, #222);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.25s ease,
+    background 0.3s ease;
+}
+
+.btn-secondary:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 16px rgba(255, 0, 204, 0.35);
+  background: linear-gradient(120deg, #555, #333);
+}
+
+.btn-link {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.btn-link:hover {
+  color: #ffffff;
+}
+
+/* Modal Entrance Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes vibraLogoShine {
+  0% {
+    background-position: 0% center;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 204, 0.35));
+  }
+  50% {
+    background-position: 100% center;
+    filter: drop-shadow(0 0 22px rgba(255, 0, 204, 0.75));
+  }
+  100% {
+    background-position: 0% center;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 204, 0.35));
+  }
+}

@@ -1,0 +1,47 @@
+<div class="creator-upload-container">
+  <h2 class="title">Subir contenido</h2>
+
+  <div class="section">
+    <label>Título del contenido</label>
+    <input type="text" placeholder="Ej. Sesión exclusiva" [(ngModel)]="title" />
+  </div>
+
+  <div class="section">
+    <label>Descripción</label>
+    <textarea
+      rows="3"
+      placeholder="Describe tu contenido..."
+      [(ngModel)]="description"
+    ></textarea>
+  </div>
+
+  <div class="section">
+    <label>Subir imágenes</label>
+    <input type="file" multiple (change)="onImagesSelected($event)" />
+    <div class="preview-grid">
+      <div class="preview-item" *ngFor="let img of imagePreviews">
+        <img [src]="img" />
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <label>Subir video (opcional)</label>
+    <input type="file" (change)="onVideoSelected($event)" />
+    <div class="video-preview" *ngIf="videoPreview">
+      <video [src]="videoPreview" controls></video>
+    </div>
+  </div>
+
+  <div class="section">
+    <label>Tipo de contenido</label>
+    <select [(ngModel)]="contentType">
+      <option>Gratis</option>
+      <option>Premium</option>
+    </select>
+  </div>
+
+  <button class="btn-primary" (click)="publishContent()">
+    Publicar contenido
+  </button>
+</div>

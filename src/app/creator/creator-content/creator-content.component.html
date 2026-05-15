@@ -1,0 +1,23 @@
+<div class="creator-content">
+  <h2 class="title">Mi contenido</h2>
+
+  <p *ngIf="loading" class="status-message">Cargando contenido...</p>
+  <p *ngIf="error" class="status-message error-message">{{ error }}</p>
+
+  <p *ngIf="!loading && !error && contents.length === 0" class="status-message">
+    Aún no has subido contenido.
+  </p>
+
+  <div *ngIf="!loading && contents.length > 0" class="card-grid">
+    <div class="card" *ngFor="let item of contents">
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.description }}</p>
+      <span class="content-type">
+        {{
+          (item.accessType || "premium") === "premium" ? "Premium" : "Gratis"
+        }}
+      </span>
+      <button class="btn-primary">Ver</button>
+    </div>
+  </div>
+</div>

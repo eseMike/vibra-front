@@ -1,0 +1,127 @@
+<div class="perfil-container">
+  <!-- HERO: Avatar + Nombre -->
+  <div class="perfil-hero">
+    <img
+      [src]="avatarUrl || creadora?.avatar"
+      alt="{{ creadora?.nombre }}"
+      class="perfil-avatar"
+      (click)="abrirPreview(avatarUrl || creadora?.avatar)"
+    />
+    <h2 class="perfil-nombre">{{ creadora?.nombre }}</h2>
+    <p class="perfil-bio">{{ creadora?.bio }}</p>
+  </div>
+
+  <!-- STATS: Energía & Conexión -->
+  <div class="perfil-stats">
+    <div class="stat">
+      <strong>2.5K</strong>
+      <span>Seguidores</span>
+    </div>
+    <div class="stat">
+      <strong>97</strong>
+      <span>Publicaciones</span>
+    </div>
+    <!-- <div class="stat">
+      <strong>💜 864</strong>
+      <span>Vibras</span>
+    </div> -->
+  </div>
+
+  <!-- ACCIONES: Conectar con Creadora -->
+  <div class="perfil-actions">
+    <!-- estado NO premium -->
+    <ng-container *ngIf="!hasPaidVibra">
+      <button class="btn seguir-btn locked" disabled>
+        <span class="icon">❤️</span>
+        <span class="txt">Seguir</span>
+      </button>
+
+      <button class="btn vibra-btn" (click)="comprarVibra()">
+        <span class="icon">✨</span>
+        <span class="txt">Comprar vibra</span>
+      </button>
+
+      <button class="btn sub-btn locked" disabled>
+        <span class="icon">🔒</span>
+        <span class="txt">Suscribir</span>
+      </button>
+    </ng-container>
+
+    <!-- estado premium -->
+    <ng-container *ngIf="hasPaidVibra">
+      <button class="btn seguir-btn" (click)="conectar()">
+        <span class="icon">❤️</span>
+        <span class="txt">Seguir</span>
+      </button>
+
+      <button class="btn vibra-btn active" (click)="conectar()">
+        <span class="icon">✨</span>
+        <span class="txt">Vibra activa</span>
+      </button>
+
+      <button class="btn sub-btn">
+        <span class="icon">🔒</span>
+        <span class="txt">Suscribir</span>
+      </button>
+    </ng-container>
+  </div>
+
+  <!-- CONTENIDO DESTACADO -->
+  <div class="perfil-seccion-contenido">
+    <h3>Contenido destacado</h3>
+    <div
+      class="grid-contenido"
+      *ngIf="creadora?.contenidos?.length; else sinContenido"
+    >
+      <div
+        class="item-contenido"
+        *ngFor="let item of creadora?.contenidos"
+        (click)="abrirPreview(item.protectedImageUrl)"
+      >
+        <img
+          *ngIf="item.protectedImageUrl"
+          [src]="item.protectedImageUrl"
+          alt="contenido"
+          [class.blur-preview]="!hasPaidVibra"
+          (contextmenu)="$event.preventDefault()"
+          (dragstart)="$event.preventDefault()"
+        />
+
+        <div class="locked-overlay" *ngIf="!hasPaidVibra">
+          <span>🔒 Premium • Preview disponible</span>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #sinContenido>
+      <div class="contenido-vacio">
+        <p>Esta creadora aún no ha subido contenido.</p>
+      </div>
+    </ng-template>
+  </div>
+  <!-- MODAL PREVIEW DE CONTENIDO -->
+  <div class="preview-modal" *ngIf="previewModalUrl" (click)="cerrarPreview()">
+    <div class="preview-content" (click)="$event.stopPropagation()">
+      <img
+        [src]="previewModalUrl"
+        alt="Vista previa"
+        [class.blur-preview]="previewExpirado && !hasPaidVibra"
+        (contextmenu)="$event.preventDefault()"
+        (dragstart)="$event.preventDefault()"
+      />
+      <div class="preview-watermark" *ngIf="!hasPaidVibra">VIBRA • PREVIEW</div>
+      <div class="preview-lock" *ngIf="previewExpirado && !hasPaidVibra">
+        <div class="preview-overlay"></div>
+
+        <div class="lock-content">
+          <p class="lock-title">El preview terminó</p>
+
+          <button class="btn vibra-btn paywall-btn" (click)="comprarVibra()">
+            Comprar Vibra para continuar
+          </button>
+        </div>
+      </div>
+      <button class="close-btn" (click)="cerrarPreview()">✕</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+.onboarding-container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0a0a0a 0%, #121212 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.onboarding-card {
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 16px;
+  padding: 2.5rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(255, 0, 150, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+h1 {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: #bbb;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.benefits {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.benefits li {
+  margin-bottom: 0.8rem;
+  color: #ddd;
+  font-size: 0.95rem;
+}
+
+.primary-btn {
+  background: linear-gradient(90deg, #ff0080, #7928ca);
+  border: none;
+  color: white;
+  padding: 0.9rem 1.5rem;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.primary-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 150, 0.4);
+}
+
+.back-link {
+  margin-top: 1.5rem;
+  color: #888;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.back-link:hover {
+  color: #fff;
+}

@@ -1,0 +1,148 @@
+.user-profile-page {
+  min-height: calc(100vh - 160px);
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  background: #111;
+  color: #fff;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 2rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(229, 0, 125, 0.35);
+  box-shadow: 0 0 28px rgba(229, 0, 125, 0.18);
+  text-align: center;
+}
+
+.avatar-circle {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 1.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 800;
+  background: radial-gradient(
+    circle,
+    rgba(229, 0, 125, 0.85),
+    rgba(90, 24, 154, 0.85)
+  );
+  border: 2px solid var(--vibra-fucsia);
+  box-shadow: 0 0 26px rgba(229, 0, 125, 0.75);
+}
+
+.profile-card h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(229, 0, 125, 0.6);
+}
+
+.email {
+  margin: 0.5rem 0 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.wallet-box {
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.wallet-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.wallet-amount {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--vibra-fucsia);
+  text-shadow: 0 0 10px rgba(229, 0, 125, 0.8);
+}
+
+.buy-vibras-section {
+  width: 100%;
+  max-width: 620px;
+  padding: 2rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(229, 0, 125, 0.25);
+  text-align: center;
+}
+
+.buy-vibras-section h2 {
+  margin: 0 0 1.5rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(229, 0, 125, 0.6);
+}
+
+.vibras-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.vibra-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(
+    135deg,
+    var(--vibra-fucsia),
+    var(--vibra-violeta)
+  );
+  box-shadow: 0 0 14px rgba(229, 0, 125, 0.55);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.vibra-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 22px rgba(229, 0, 125, 0.85);
+}
+
+.loading-state {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .user-profile-page {
+    padding: 2.5rem 1rem;
+  }
+
+  .profile-card,
+  .buy-vibras-section {
+    padding: 1.5rem;
+  }
+
+  .vibras-grid {
+    flex-direction: column;
+  }
+
+  .vibra-btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,67 @@
+<div class="discover-layout">
+  <aside class="sidebar">
+    <h3 class="logo">VIBRA</h3>
+    <ul class="menu">
+      <li (click)="goToHome()">Inicio</li>
+      <li (click)="goToDiscover()">Explorar</li>
+      <li (click)="goToProfile()">Mi perfil</li>
+      <li (click)="goToSettings()">Configuración</li>
+    </ul>
+  </aside>
+
+  <div class="discover-container">
+    <h2 class="discover-title">Perfiles</h2>
+    <div class="creator-entry" *ngIf="role === 'creator'">
+      <button class="creator-entry-btn" (click)="irACreador()">
+        Quiero subir mi contenido
+      </button>
+    </div>
+
+    <div class="creator-grid">
+      <div
+        class="creator-card"
+        *ngFor="let c of creadores"
+        (click)="goToPerfil(c._id)"
+      >
+        <div class="creator-avatar">
+          <img
+            *ngIf="c.avatar; else avatarFallback"
+            [src]="'http://localhost:4000/' + c.avatar"
+            alt="avatar"
+            class="creator-avatar-img"
+          />
+
+          <ng-template #avatarFallback>
+            <span class="creator-avatar-fallback">
+              {{ c.name ? c.name.charAt(0).toUpperCase() : "?" }}
+            </span>
+          </ng-template>
+        </div>
+        <div *ngIf="!isUnlocked(c._id)" class="locked-overlay">
+          <span class="lock-icon">🔒</span>
+          <span class="lock-text">Bloqueado</span>
+        </div>
+
+        <h3 class="creator-name">{{ c.name }}</h3>
+
+        <p class="creator-bio">Creator</p>
+        <div
+          class="unlock-cta"
+          *ngIf="!isUnlocked(c._id)"
+          (click)="
+            !isLoading(c._id) && unlockCreator(c._id); $event.stopPropagation()
+          "
+        >
+          <span class="unlock-text" *ngIf="!isLoading(c._id)"
+            >Desbloquear acceso</span
+          >
+          <span class="unlock-price" *ngIf="!isLoading(c._id)">20 vibras</span>
+
+          <span class="unlock-text" *ngIf="isLoading(c._id)">Procesando…</span>
+        </div>
+
+        <span *ngIf="isUnlocked(c._id)"> Desbloqueado ✅ </span>
+      </div>
+    </div>
+  </div>
+</div>

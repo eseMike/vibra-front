@@ -1,0 +1,17 @@
+<app-age-modal
+  *ngIf="showAgeModal"
+  (ageConfirmed)="onAgeConfirmed()"
+  (ageDenied)="onAgeDenied()"
+>
+</app-age-modal>
+<app-privacy-modal
+  *ngIf="showPrivacyModal"
+  (privacyAccepted)="onPrivacyAccepted()"
+  (privacyDenied)="onPrivacyDenied()"
+>
+</app-privacy-modal>
+<app-header *ngIf="showHeader"></app-header>
+<router-outlet *ngIf="!showPrivacyModal"></router-outlet>
+<app-footer
+  *ngIf="!showPrivacyModal && !showAgeModal && !isUnderagePage"
+></app-footer>

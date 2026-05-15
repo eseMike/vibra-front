@@ -1,0 +1,143 @@
+.register-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #121212;
+  padding: 20px;
+}
+
+.register-box {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: #1c1c1e;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(229, 0, 125, 0.4);
+  text-align: center;
+  color: #f4f4f4;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  background: linear-gradient(90deg, #e5007d, #4c1c8c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  label {
+    font-size: 0.9rem;
+    text-align: left;
+    color: #ccc;
+  }
+
+  input {
+    background: #2a2a2d;
+    border: 2px solid transparent;
+    padding: 12px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition:
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:focus {
+      border-color: #e5007d;
+      box-shadow: 0 0 10px rgba(229, 0, 125, 0.6);
+    }
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 14px;
+    background: linear-gradient(90deg, #e5007d, #4c1c8c);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    transition:
+      opacity 0.3s ease,
+      transform 0.15s ease;
+
+    &:hover {
+      opacity: 0.85;
+      transform: scale(1.03);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.login-link {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: #bbb;
+
+  a {
+    color: #e5007d;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.error-msg {
+  width: 100%;
+  background: rgba(229, 0, 125, 0.15);
+  border-left: 4px solid #e5007d;
+  color: #ff94d0;
+  padding: 10px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(229, 0, 125, 0.6);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover {
+    transform: scale(1.08);
+    border-color: #e5007d;
+    box-shadow: 0 0 10px rgba(229, 0, 125, 0.7);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

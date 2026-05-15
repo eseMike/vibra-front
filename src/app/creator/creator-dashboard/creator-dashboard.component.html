@@ -1,0 +1,42 @@
+<div class="creator-dashboard">
+  <h2 class="title">Panel de Creadora</h2>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>Subir contenido</h3>
+      <p>Publica nuevas fotos o videos</p>
+      <button class="btn-primary" (click)="goToUpload()">Ir</button>
+    </div>
+
+    <div class="card">
+      <h3>Mi contenido</h3>
+      <p>Administra tus publicaciones</p>
+      <button class="btn-primary" (click)="goToMyContent()">Ver</button>
+    </div>
+
+    <div class="card">
+      <h3>Suscriptores</h3>
+      <p>Consulta tus seguidores</p>
+      <button class="btn-primary" (click)="goToSubscribers()">Entrar</button>
+    </div>
+
+    <div class="card">
+      <h3>Ganancias</h3>
+      <p>Revisa tus ingresos</p>
+      <button class="btn-primary" (click)="goToEarnings()">Ver</button>
+    </div>
+
+    <div class="card">
+      <h3>Editar perfil</h3>
+      <p>Cambia tu foto y datos</p>
+      <button class="btn-primary" (click)="goToEditProfile()">Ir</button>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal-overlay" *ngIf="showModal">
+    <div class="modal-box">
+      <p class="modal-text">{{ modalMessage }}</p>
+      <button class="modal-btn" (click)="cerrarModal()">Aceptar</button>
+    </div>
+  </div>
+</div>
